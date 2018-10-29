@@ -4,11 +4,13 @@
 /// https://developer.mozilla.org/bm/docs/Web/JavaScript
 
 /// \u{13102}, \ud80c\udd02
-/// https://www.branah.com/unicode-converter
 /// https://zh.wikipedia.org/wiki/IEEE_754
 
 /// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics
+/// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS
 /// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
+
+/// https://stackoverflow.com/questions/3709866/whats-a-valid-left-hand-side-expression-in-javascript-grammar
 
 (function(global) {
     var g = global;
@@ -46,8 +48,6 @@
 /// 'void'
 /// MDN:
 ///     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
-/// Syntax:
-///     void _expression_
 invoke(function voidOperator() {
     console.log(void 0);
     console.log(void 1);
@@ -335,3 +335,52 @@ invoke(function objectBasic() {
         });
     });
 });
+
+/// 'prototype chain'
+/// References:
+///     https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
+///     https://www.ecma-international.org/ecma-262/5.1/#sec-11.2.1
+///     https://www.ecma-international.org/ecma-262/5.1/#sec-8.7.1
+///     https://www.ecma-international.org/ecma-262/5.1/#sec-8.12.3
+///     https://www.ecma-international.org/ecma-262/5.1/#sec-8.12.2
+///     https://www.ecma-international.org/ecma-262/5.1/#sec-11.13.1
+///     https://www.ecma-international.org/ecma-262/5.1/#sec-8.7.2
+///     https://www.ecma-international.org/ecma-262/5.1/#sec-8.12.5
+invoke(function prototypeChain() {
+    var x;
+    var y;
+    var z;
+
+    invoke(function() {
+        x = Object.create(null);
+        y = Object.create(x);
+        z = Object.create(y);
+
+        console.log(Object.getPrototypeOf(x) === null);
+        console.log(Object.getPrototypeOf(y) === x);
+        console.log(Object.getPrototypeOf(z) === y);
+    });
+    invoke(function() {
+        x.a = 87;
+
+        console.log(x.a);
+        console.log(y.a);
+        console.log(z.a);
+    });
+    invoke(function() {
+        y.b = 94;
+
+        console.log(x.b);
+        console.log(y.b);
+        console.log(z.b);
+    });
+    invoke(function() {
+        y.a = 1313;
+
+        console.log(x.a);
+        console.log(y.a);
+        console.log(z.a);
+    });
+});
+
+///
