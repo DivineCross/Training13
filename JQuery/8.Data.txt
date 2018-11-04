@@ -1,0 +1,9 @@
+/// https://www.w3.org/TR/html5/dom.html#custom-data-attribute
+/// https://api.jquery.com/category/data
+
+- Extension
+    .data()             **
+    .removeData()
+- Utility
+    jQuery.data()
+    jQuery.removeData()

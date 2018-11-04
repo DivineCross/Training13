@@ -1,0 +1,117 @@
+- JavaScript
+    /// https://dom.spec.whatwg.org/#events
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Event
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
+    /// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+    /// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
+    /// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Ways_of_using_web_events
+    /// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Other_event_concepts
+    /// https://www.quirksmode.org/js/events_order.html
+
+    - Event interface
+        type
+        target
+        currentTarget
+        preventDefault()
+        stopPropagation()
+    - Interfaces based on Event
+        MouseEvent
+        KeyboardEvent
+        DragEvent
+    - Event example
+        (function() {
+            var invoke = function(func) {
+                var args = Array.apply(null, arguments).slice(1);
+
+                console.groupCollapsed(func.name);
+                    func.apply(null, (args.length ? args : void 0));
+                console.groupEnd();
+            };
+
+            invoke(function events() {
+                document.open();
+                document.write('<body></body>');
+                document.close();
+
+                var body = document.querySelector('body');
+                var outer = body.appendChild(document.createElement('div'));
+                var inner = outer.appendChild(document.createElement('div'));
+
+                outer.style.cssText = 'background-color: green; width: 300px; height: 300px';
+                outer.style.left = '50px';
+                outer.style.top = '50px';
+                outer.style.position = 'absolute';
+
+                inner.style.cssText = 'background-color: blue;  width: 100px; height: 100px';
+                inner.style.left = '100px';
+                inner.style.top = '100px';
+                inner.style.position = 'relative';
+
+                var maker = function(msg1, msg2) { return function() {
+                    console.log([msg1, msg2].join(': '))
+                } };
+                var triggerClick = function() {
+                    invoke(function innerClick() { inner.click() });
+                    invoke(function outerClick() { outer.click() });
+                };
+                var bi = maker('bubble ', 'inner');
+                var bo = maker('bubble ', 'outer');
+                var ci = maker('capture', 'inner');
+                var co = maker('capture', 'outer');
+
+                inner.addEventListener('click', bi);
+                outer.addEventListener('click', bo);
+                inner.addEventListener('click', ci, true);
+                outer.addEventListener('click', co, true);
+                invoke(triggerClick);
+
+                inner.removeEventListener('click', bi);
+                outer.removeEventListener('click', bo);
+                inner.removeEventListener('click', ci);
+                outer.removeEventListener('click', co);
+
+                inner.addEventListener('click', ci, true);
+                outer.addEventListener('click', co, true);
+                inner.addEventListener('click', bi);
+                outer.addEventListener('click', bo);
+                invoke(triggerClick);
+            });
+        })();
+
+- JQuery
+    /// https://api.jquery.com/category/events
+
+    - Event Object
+    - Event Handler Attachment
+        .on()               **
+        .off()              *
+        .one()
+        .trigger()          *
+        .triggerHandler()   **
+    - Browser
+        .resize()
+        .show()
+    - Form
+        .change()           **
+        .focus()            *
+        .blur()
+        .focusin()          *
+        .focusout()
+        .select()
+        .submit()
+    - Keyboard
+        .keydown()
+        .keypress()
+        .keyup()
+    - Mouse
+        .click()            **
+        .hover()
+
+- Example
+    (function triggerHandlerF() {
+        $(document.body).on('itl.happy', function(ev, p1, p2) {
+            console.dir(p1);
+            console.dir(p2);
+        });
+        $(document.body).triggerHandler('itl.happy', ['xyz', { x: 3 }]);
+    })();

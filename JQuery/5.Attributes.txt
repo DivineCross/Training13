@@ -1,0 +1,15 @@
+https://api.jquery.com/category/attributes
+
+- Class
+    .hasClass()         *
+    .addClass()         *
+    .removeClass()      *
+    .toggleClass()      *
+- Attr
+    .attr()             *
+    .removeAttr()       *
+- Prop
+    .prop()             *
+    .removeProp()       *
+- Value
+    .val()              **

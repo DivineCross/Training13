@@ -1,0 +1,10 @@
+/// https://api.jquery.com/category/utilities
+/// https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
+
+jQuery.contains()       -> Node.contains()
+jQuery.each()           -> Array.prototype.forEach(), *for of, for in, *Object.entries(), Object.keys()
+jQuery.map()            -> Array.prototype.map(), *for of, for in, *Object.entries(), Object.keys()
+jQuery.extend()         -> *Object.assign()
+jQuery.makeArray()      -> *Array.from()
+jQuery.parseHTML()      -> *DOMParser
+jQuery.fn.extend()      **

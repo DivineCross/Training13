@@ -1,0 +1,34 @@
+/// https://api.jquery.com/category/manipulation
+/// https://stackoverflow.com/questions/24943102/whats-the-difference-between-clone-and-html
+
+- Copying
+    .clone()            *
+- Insertion, Inside, String
+    .html()             **
+    .text()             **
+- Insertion, Inside
+    .append()           *
+    .appendTo()         *
+    .prepend()          *
+    .prependTo()        *
+- Insertion, Outside
+    .after()            *
+    .insertAfter()      *
+    .before()           *
+    .insertBefore()     *
+- Insertion, Around
+    .unwrap()
+    .wrap()             *
+    .wrapAll()          *
+    .wrapInner()
+- Removal
+    .empty()            *
+    .remove()           *
+    .detach()           **
+- Replacement
+    .replaceWith()      *
+    .replaceAll()
+- Style Properties
+    .css()              *
+    .offset()
+    .position()

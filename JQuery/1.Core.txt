@@ -1,0 +1,13 @@
+/// https://jquery.com
+/// https://api.jquery.com
+/// https://api.jquery.com/category/core
+
+- Methods
+    jQuery()                ***
+        - Create from selector/element/selection
+        - Create from html
+        - Register a function for document being ready
+    .ready()
+    jQuery.noConflict()
+- Properties
+    .length                 **

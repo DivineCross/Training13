@@ -1,0 +1,10 @@
+/// https://api.jquery.com/category/effects
+
+- Basic
+    .hide()             **
+    .show()             **
+    .toggle()           **
+- Custom
+    .animate()
+- Fading
+- Sliding

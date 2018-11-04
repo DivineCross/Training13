@@ -1,0 +1,39 @@
+/// https://api.jquery.com/category/traversing
+
+- Common
+    .get()              **
+    .index()            *
+    .toArray()          *
+- State
+    .add()              **
+    .addBack()          *
+    .end()
+- Traversal
+    .contents()         *
+    .children()         **
+    .closest()          **
+    .find()             **
+    .siblings()         *
+    .parent()           **
+    .parents()
+    .parentsUntil()
+    .next()
+    .nextAll()
+    .nextUntil()
+    .prev()
+    .prevAll()
+    .prevUntil()
+    .offsetParent()
+- Filtering
+    .eq()               **
+    .slice()            *
+    .first()            *
+    .last()
+    .filter()           **
+    .has()              *
+    .not()              *
+- Checking
+    .is()               **
+- Manipulation
+    .each()             **
+    .map()              **

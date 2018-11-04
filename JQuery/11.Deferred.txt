@@ -1,0 +1,18 @@
+/// https://api.jquery.com/category/deferred-object
+/// https://api.jquery.com/Types/#Deferred
+/// https://api.jquery.com/Types/#Promise
+/// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+- Starter
+    jQuery.Deferred()           *
+    deferred.resolve()          *
+    deferred.reject()           *
+- Handler
+    deferred.then()             *
+    deferred.done()             *
+    deferred.fail()             *
+    deferred.always()
+- Promise
+    deferred.promise()          *
+- Utility
+    jQuery.when()

@@ -1,0 +1,43 @@
+/// https://api.jquery.com/category/ajax
+/// https://api.jquery.com/Types/#jqXHR
+/// https://api.jquery.com/jQuery.Ajax/#callback-functions
+/// https://api.jquery.com/Ajax_Events
+
+- Global Ajax Event Handlers
+    .ajaxStart()
+    .ajaxSend()
+    .ajaxSuccess()
+    .ajaxError()
+    .ajaxComplete()
+    .ajaxEnd()
+
+- Ajax Events
+    ajaxStart (Global Event)
+
+        beforeSend (Local Event)
+        ajaxSend (Global Event)
+
+        success (Local Event)
+        ajaxSuccess (Global Event)
+
+        error (Local Event)
+        ajaxError (Global Event)
+
+        complete (Local Event)
+        ajaxComplete (Global Event)
+
+    ajaxStop (Global Event)
+
+- Helper Functions
+    jQuery.param()          *
+    .serialize()            **
+    .serializeArray()       *
+
+- Low-Level Interface
+    jQuery.ajax()           *
+    jQuery.ajaxSetup()
+
+- Shorthand Methods
+    jQuery.get()            **
+    jQuery.post()           **
+    .load()
