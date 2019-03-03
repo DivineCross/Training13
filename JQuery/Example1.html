@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'sans-serif', Tahoma, Verdana, '微軟正黑體';
+        }
+
+        main {
+            width: 800px;
+            min-height: 800px;
+        }
+
+        code {
+            background-color: rgba(27, 31, 35, .05);
+            border-radius: 5px;
+            font-size: 85%;
+            margin: 0;
+            padding: .15em .3em;
+        }
+
+        .container {
+            margin-top: 2em;
+        }
+
+        .row {
+            padding: 0.25em;
+            height: 55px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="container shadow" hidden>
+        <div class="row bg-warning">
+            <div class="col-3">
+                <code></code>
+            </div>
+            <div class="col-3">
+                <span class="btn btn-sm btn-primary">Select!</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <code>type="text"</code>
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" value="文字輸入">
+            </div>
+            <div class="col-3">
+                <code>type="password"</code>
+            </div>
+            <div class="col-3">
+                <input type="password" class="form-control" value="9487">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <code>type="radio"</code>
+            </div>
+            <div class="col-3">
+                <input type="radio">
+            </div>
+            <div class="col-3">
+                <code>type="checkbox"</code>
+            </div>
+            <div class="col-3">
+                <input type="checkbox">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <code>select</code>
+            </div>
+            <div class="col-3">
+                <select class="form-control">
+                    <option>請選擇</option>
+                    <option>蘋果</option>
+                    <option selected>香蕉</option>
+                    <option>芭樂</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <code>button</code>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-info">我是按鈕</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <code>textarea</code>
+            </div>
+            <div class="col-3">
+                <textarea cols="5" rows="1" class="form-control"></textarea>
+            </div>
+            <div class="col-3">
+                <code>span</code>
+            </div>
+            <div class="col-3">
+                <span>一小段字</span>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+$(function() {
+
+var $main = $('main');
+var $template = $main.find('.container').first().detach().removeAttr('hidden');
+
+var addExample = function(selector) {
+    var $c = $template.clone();
+
+    var $headRow = $c.find('.row').first();
+    var $selector = $headRow.find('code').text(selector);
+    var $btn = $headRow.find('span.btn');
+    var $rows = $c.find('.row').slice(1);
+
+    $main.append($c);
+    $btn.click(() => {
+        $rows.find('div > :not(code)').hide();
+        $rows.find(selector).show();
+    });
+};
+
+addExample(':text');
+addExample(':input');
+
+});
+</script>
+</body>
+</html>
