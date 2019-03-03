@@ -1,0 +1,25 @@
+<html>
+<body>
+    <input type='file' onchange='openFile(event)'><br>
+    <script>
+        var allText = '';
+
+        var openFile = function(event) {
+            var input = event.target;
+
+            var reader = new FileReader();
+            reader.onload = function(){
+                allText = reader.result;
+                console.log(allText);
+            };
+            reader.readAsText(input.files[0]);
+        };
+
+        var encode = function(rawStr) {
+            return rawStr.replace(/[\u0000-\u9999<>\&]/gim, function(i) {
+                return '%' + i.charCodeAt(0).toString(16);
+            });
+        };
+    </script>
+</body>
+</html>
